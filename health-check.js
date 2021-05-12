@@ -13,5 +13,10 @@ module.exports = {
             serviceName : 'mongodb integration',
             url         : 'localhost:27017/db',
         },
+        {
+            type        : HealthCheckerTypes.RabbitMq,
+            serviceName : 'rabbitmq integration',
+            url         : 'amqp://localhost',
+        },
     ],
 };

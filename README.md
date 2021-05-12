@@ -109,5 +109,5 @@ This checks returns a JSON object which allows you to check health & status of i
 
 - [x] Redis
 - [x] Mongodb
+- [x] RabbitMQ
 - [ ] Web integration (https)
-- [ ] RabbitMQ
