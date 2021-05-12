@@ -27,6 +27,8 @@ This check simply returns a JSON object like this
 
 # Detailed Health Check
 
+You can either pass config to the `DetailedHealthCheck` function or create a file named `health-check.js`.
+
 Ex:
 
 ```
@@ -57,7 +59,28 @@ routes.route('/_health/status, (_req, res) => {
 
 ```
 
-This checks returns a JSON object which allows you to check health & status of integrations your application is using
+`health-check.js`
+```
+const { HealthCheckerTypes } = require('./index');
+
+module.exports = {
+    name         : 'testing application',
+    integrations : [
+        {
+            type        : HealthCheckerTypes.Redis,
+            serviceName : 'redis integration',
+            url         : 'redis://localhost:6379',
+        },
+        {
+            type        : HealthCheckerTypes.MongoDb,
+            serviceName : 'mongodb integration',
+            url         : 'localhost:27017/db',
+        },
+    ],
+};
+```
+
+This checks returns a JSON object which allows you to check health & status of integrations your application is using.
 
 ```
 {
@@ -68,14 +91,14 @@ This checks returns a JSON object which allows you to check health & status of i
             "service_name": "redis integration",
             "url": "redis://localhost:6379",
             "status": true,
-            "responseTime": 0.041,
+            "response_time": 0.041,
             "error": null
         },
         {
             "service_name": "mongodb integration",
             "url": "localhost:27017/db",
             "status": true,
-            "responseTime": 0.641,
+            "response_time": 0.641,
             "error": null
         }
     ]

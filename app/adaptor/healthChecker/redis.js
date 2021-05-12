@@ -1,30 +1,32 @@
-const HealthCheckerTypes = require("../../types/healtChecker");
-const Base = require("./base");
+const { HealthCheckerTypes } = require('../../constants');
+const Base = require('./base');
 
-const { checkRedisClient } = require("../../services");
+const { checkRedisClient } = require('../../services');
 
 class Redis extends Base {
-  constructor(options = {}) {
-    super();
-    if (!options.url) {
-      throw new Error("URL is required!");
+    constructor(options = {}) {
+        super();
+
+        this.serviceName = options.serviceName || '';
+        this.serviceType = HealthCheckerTypes.Redis;
+        this.url = options.url;
+        this.timeout = options.timeout;
     }
 
-    this.serviceName = options.serviceName || "";
-    this.serviceType = HealthCheckerTypes.Redis;
-    this.url = options.url;
-    this.timeout = options.timeout;
-  }
-
-  async check() {
-    this.startTime = this.getCurrentTime();
-    const result = await checkRedisClient({
-      url: this.url,
-      timeout: this.timeout,
-    });
-    this.status = result.status;
-    this.error = result.error;
-  }
+    async check() {
+        try {
+            this.validate();
+            this.startTime = this.getCurrentTime();
+            await checkRedisClient({
+                url     : this.url,
+                timeout : this.timeout,
+            });
+            this.status = true;
+        } catch (error) {
+            this.status = false;
+            this.error = error;
+        }
+    }
 }
 
 module.exports = Redis;

@@ -9,6 +9,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint . ",
+    "lintFix": "./node_modules/.bin/eslint . --fix ",
     "dev": "nodemon app/index.js"
   },
   "keywords": [
@@ -24,6 +26,10 @@
     "redis": "^3.1.2"
   },
   "devDependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "eslint": "5.4.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.14.0"
   }
 }
