@@ -11,17 +11,21 @@ class Redis extends Base {
         this.serviceType = HealthCheckerTypes.Redis;
         this.url = options.url;
         this.timeout = options.timeout;
-        this.validate();
     }
 
     async check() {
-        this.startTime = this.getCurrentTime();
-        const result = await checkRedisClient({
-            url     : this.url,
-            timeout : this.timeout,
-        });
-        this.status = result.status;
-        this.error = result.error;
+        try {
+            this.validate();
+            this.startTime = this.getCurrentTime();
+            await checkRedisClient({
+                url     : this.url,
+                timeout : this.timeout,
+            });
+            this.status = true;
+        } catch (error) {
+            this.status = false;
+            this.error = error;
+        }
     }
 }
 

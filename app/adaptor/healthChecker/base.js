@@ -37,7 +37,6 @@ class Base {
         return new Date().getTime();
     }
 
-    // eslint-disable-next-line class-methods-use-this
     getDeltaTime(time) {
         return (new Date().getTime() - time) / 1000;
     }
