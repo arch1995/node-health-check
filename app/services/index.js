@@ -1,4 +1,4 @@
 module.exports = {
-  checkRedisClient: require("./redis-service"),
-  checkMongoDbClient: require("./mongodb-service"),
+    checkRedisClient   : require('./redis-service'),
+    checkMongoDbClient : require('./mongodb-service'),
 };
