@@ -1,0 +1,29 @@
+{
+  "name": "node-health-check",
+  "version": "1.0.0",
+  "description": "A simple package to check health for your nodeJs application.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arch1995/node-health-check.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app/index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "health-check",
+    "redis",
+    "mongodb"
+  ],
+  "author": "Archit Gupta",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^5.12.8",
+    "redis": "^3.1.2"
+  },
+  "devDependencies": {
+    "express": "^4.17.1"
+  }
+}
