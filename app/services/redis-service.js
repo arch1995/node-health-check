@@ -2,7 +2,7 @@ const { createClient } = require('redis');
 const { Defaults } = require('../constants');
 
 function checkRedisClient(config) {
-    return new Promise((resolve, _reject) => {
+    return new Promise((resolve, reject) => {
         const client = createClient({
             url             : config.url,
             connect_timeout : config.timeout || Defaults.RedisTimeout,
@@ -10,18 +10,13 @@ function checkRedisClient(config) {
 
         client.on('error', (error) => {
             client.end(true);
-            resolve({
-                status: false,
-                error,
-            });
+            reject(error);
         });
 
         client.ping((status) => {
             client.end(true);
-            resolve({
-                status : status === null,
-                error  : status !== null ? status : null,
-            });
+            if (status) return resolve();
+            return reject(new Error('No Status'));
         });
     });
 }
