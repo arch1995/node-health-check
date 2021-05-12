@@ -6,9 +6,6 @@ const { checkMongoDbClient } = require('../../services');
 class MongoDb extends Base {
     constructor(options = {}) {
         super();
-        if (!options.url) {
-            throw new Error('URL is required!');
-        }
 
         this.serviceName = options.serviceName || '';
         this.serviceType = HealthCheckerTypes.MongoDb;
