@@ -1,6 +1,7 @@
 const HealthCheckerTypes = {
-    Redis   : 'redis',
-    MongoDb : 'mongodb',
+    Redis    : 'redis',
+    MongoDb  : 'mongodb',
+    RabbitMq : 'rabbitMq',
 };
 
 const Defaults = {
