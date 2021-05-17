@@ -25,7 +25,7 @@ class Base {
         return {
             serviceName  : this.serviceName,
             serviceType  : this.seerviceType,
-            url          : this.url,
+            // url          : this.url,
             status       : this.status,
             responseTime : this.getDeltaTime(this.startTime),
             error        : this.error,
