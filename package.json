@@ -1,14 +1,14 @@
 {
-  "name": "node-health-check",
-  "version": "1.0.0",
-  "description": "A simple package to check health for your nodeJs application.",
+  "name": "nodejs-health-service",
+  "version": "0.0.1",
+  "description": "A simple package to check health for your nodeJs applications.",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/arch1995/node-health-check.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "lint": "./node_modules/.bin/eslint . ",
     "lintFix": "./node_modules/.bin/eslint . --fix ",
     "dev": "nodemon app/index.js"
