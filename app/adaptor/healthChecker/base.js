@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 class Base {
     constructor() {
         this.status = null;
@@ -16,7 +17,6 @@ class Base {
         }
     }
 
-    // eslint-disable-next-line class-methods-use-this
     check() {
         throw new Error('Can not call this method on Base class');
     }
@@ -32,7 +32,6 @@ class Base {
         };
     }
 
-    // eslint-disable-next-line class-methods-use-this
     getCurrentTime() {
         return new Date().getTime();
     }

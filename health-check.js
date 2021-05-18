@@ -13,5 +13,13 @@ module.exports = {
             serviceName : 'mongodb integration',
             url         : 'localhost:27017/db',
         },
+        {
+            type        : HealthCheckerTypes.mysql,
+            serviceName : 'mysql integration',
+            host        : 'localhost',
+            user        : 'username',
+            database    : 'dbname',
+            password    : 'password',
+        },
     ],
 };

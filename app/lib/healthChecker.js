@@ -7,7 +7,6 @@ function SimpleHealthCheck() {
 
 async function DetailedHealthCheck(cfg) {
     const config = cfg || helper.loadConfig();
-    console.log('config', config);
     const integrations = await Promise.all(
         (config.integrations || []).map(async (item) => {
             const ob = healthCheckFactory.create(item.type, item);
